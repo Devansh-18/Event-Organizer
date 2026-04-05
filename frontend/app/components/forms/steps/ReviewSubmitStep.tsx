@@ -1,13 +1,14 @@
+"use client"
+import { useFormContext } from 'react-hook-form';
 import { FormData } from '@/app/lib/types';
 import { AlertCircle } from 'lucide-react';
+import { useFormStep } from '../context/FormStepContext';
 
-interface Props {
-  data: FormData;
-  isSubmitting?: boolean;
-  errorStatus?: string;
-}
+export default function ReviewSubmitStep() {
+  const { getValues } = useFormContext<FormData>();
+  const { errorStatus } = useFormStep();
+  const data = getValues();
 
-export default function Step4Submit({ data, isSubmitting, errorStatus }: Props) {
   return (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <h3 className="text-2xl font-bold text-gray-800 mb-6">Review & Submit</h3>

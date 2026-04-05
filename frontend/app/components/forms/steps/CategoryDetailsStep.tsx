@@ -1,9 +1,11 @@
+"use client"
 import { useFormContext } from 'react-hook-form';
 import { CategoryType, FormData } from '@/app/lib/types';
 import { Users, DollarSign, Clock, Briefcase, Music, LayoutList } from 'lucide-react';
 
-export default function Step2Category({ category }: { category: CategoryType }) {
-  const { register, formState: { errors } } = useFormContext<FormData>();
+export default function CategoryDetailsStep() {
+  const { register, watch, formState: { errors } } = useFormContext<FormData>();
+  const category = watch('category') as CategoryType;
 
   if (!category) return null;
 

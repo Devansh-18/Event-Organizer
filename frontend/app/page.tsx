@@ -1,4 +1,4 @@
-import MultiStepForm from '@/app/components/MultiStepForm';
+import MultiStepForm from '@/app/components/forms';
 import { CalendarDays } from 'lucide-react';
 import { Metadata } from 'next';
 

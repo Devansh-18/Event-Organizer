@@ -1,3 +1,4 @@
+"use client"
 import { useFormContext } from 'react-hook-form';
 import { FormData } from '@/app/lib/types';
 import { Calendar, MapPin, Tag, Type } from 'lucide-react';
@@ -115,7 +116,7 @@ export default function Step1Basics() {
         <label className="text-sm font-medium text-gray-900 block mb-4">What category are you hiring for? *</label>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {['Event Planner', 'Performer', 'Crew'].map((cat) => (
-            <label key={cat} className="relative flex cursor-pointer rounded-xl border border-gray-200 bg-white p-4 shadow-sm focus:outline-none has-[:checked]:border-blue-600 has-[:checked]:ring-1 has-[:checked]:ring-blue-600 has-[:checked]:bg-blue-50/50 transition-all hover:border-blue-300">
+            <label key={cat} className="relative flex cursor-pointer rounded-xl border border-gray-200 bg-white p-4 shadow-sm focus:outline-none has-checked:border-blue-600 has-checked:ring-1 has-checked:ring-blue-600 has-checked:bg-blue-50/50 transition-all hover:border-blue-300">
               <input type="radio" {...register('category', { required: 'Please select a category to proceed' })} value={cat} className="sr-only" />
               <div className="flex w-full items-center justify-between">
                 <span className="font-semibold text-gray-900">{cat}</span>
