@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 
 app.use(cors({
   origin: [
-    "https://event-organizer-o7jx.vercel.app/",
+    process.env.FRONTEND_URL_PROD,
     process.env.FRONTEND_URL,
   ]
 }));
