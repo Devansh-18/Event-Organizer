@@ -11,7 +11,7 @@ export const EMPTY_DEFAULTS: FormData = {
   location: '',
   venue: '',
   category: '',
-  budget: '',
+  budget: undefined,
   guestCount: '',
   servicesNeeded: '',
   genre: '',
