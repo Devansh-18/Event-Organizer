@@ -38,7 +38,9 @@ export default function ReviewSubmitStep() {
           <div className="grid grid-cols-2 gap-y-4 text-sm">
             {data.category === 'Event Planner' && (
               <>
-                {data.budget && <div><span className="text-blue-500 block">Budget</span> <span className="font-medium">{data.budget}</span></div>}
+                {data.budget != null && (
+                  <div><span className="text-blue-500 block">Budget</span> <span className="font-medium">${data.budget.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
+                )}
                 {data.guestCount && <div><span className="text-blue-500 block">Guest Count</span> <span className="font-medium">{data.guestCount}</span></div>}
                 {data.servicesNeeded && <div className="col-span-2"><span className="text-blue-500 block">ServicesNeeded</span> <span className="font-medium">{data.servicesNeeded}</span></div>}
               </>

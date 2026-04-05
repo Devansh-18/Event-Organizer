@@ -21,8 +21,15 @@ const createRequirement = async (req, res) => {
             return res.status(400).json({ message: 'End date cannot be earlier than start date' });
         }
 
-        // Validate numeric duration fields inside specificFields
+        // Validate numeric fields inside specificFields
         if (specificFields) {
+            if (specificFields.budget !== undefined) {
+                const bud = Number(specificFields.budget);
+                if (isNaN(bud) || bud <= 0) {
+                    return res.status(400).json({ message: 'Budget must be a positive number' });
+                }
+                specificFields.budget = bud;
+            }
             if (specificFields.performanceDuration !== undefined) {
                 const dur = Number(specificFields.performanceDuration);
                 if (isNaN(dur) || dur < 1) {

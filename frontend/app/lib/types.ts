@@ -10,7 +10,7 @@ export interface FormData {
   category: CategoryType;
   
   // Planner
-  budget?: string;
+  budget?: number;
   guestCount?: string;
   servicesNeeded?: string;
   // Performer
@@ -23,4 +23,19 @@ export interface FormData {
   experienceRequired?: string;
   
   specialInstructions?: string;
+}
+
+/** Shape of a requirement document returned from the GET API. */
+export interface Requirement {
+  _id: string;
+  name: string;
+  eventType: string;
+  startDate: string;
+  endDate?: string;
+  location: string;
+  venue?: string;
+  category: 'Event Planner' | 'Performer' | 'Crew';
+  specificFields: Record<string, any>;
+  createdAt: string;
+  updatedAt: string;
 }

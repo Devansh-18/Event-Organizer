@@ -23,10 +23,16 @@ export default function CategoryDetailsStep() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
-                <DollarSign size={16} className="text-green-600" /> Estimated Budget
+                <DollarSign size={16} className="text-green-600" /> Estimated Budget ($)
               </label>
-              <input 
-                {...register('budget', { required: 'Budget is required' })}
+              <input
+                type="number"
+                step="0.01"
+                {...register('budget', {
+                  required: 'Budget is required',
+                  valueAsNumber: true,
+                  min: { value: 0.01, message: 'Budget must be greater than 0' },
+                })}
                 className={`w-full p-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500/50 transition-all shadow-sm ${errors.budget ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:border-blue-500'}`}
                 placeholder="e.g. 5000"
               />
