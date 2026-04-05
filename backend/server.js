@@ -11,12 +11,7 @@ const app = express();
 
 const requirementRoutes = require('./routes/requirementRoutes');
 
-app.use(cors({
-  origin: [
-    process.env.FRONTEND_URL,
-    process.env.FRONTEND_URL_PROD
-  ]
-}));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
