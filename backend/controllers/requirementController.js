@@ -38,8 +38,7 @@ const createRequirement = async (req, res) => {
                 specificFields.shiftHours = sh;
             }
         }
-        console.log("Creating requirement...");
-
+        
         const requirement = await Requirement.create({
             name,
             eventType,
@@ -50,7 +49,8 @@ const createRequirement = async (req, res) => {
             category,
             specificFields,
         });
-
+        
+        console.log("Created requirement...");
         res.status(201).json(requirement);
     } catch (error) {
         console.error(error);

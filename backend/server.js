@@ -20,10 +20,11 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/',(req,res)=>{
-    res.send("Server is running");
-});
 app.use('/api/requirements', requirementRoutes);
+
+app.get('/', (req, res) => {
+  res.send('Server is running');
+});
 
 const PORT = process.env.PORT || 5000;
 
