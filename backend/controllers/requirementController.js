@@ -2,6 +2,7 @@ const Requirement = require('../models/Requirement');
 
 const createRequirement = async (req, res) => {
     try {
+        console.log("Call received in createRequirement.");
         const { name, eventType, startDate, endDate, location, venue, category, specificFields } = req.body;
 
         if (!name || !eventType || !startDate || !location || !category) {
@@ -37,6 +38,7 @@ const createRequirement = async (req, res) => {
                 specificFields.shiftHours = sh;
             }
         }
+        console.log("Creating requirement...");
 
         const requirement = await Requirement.create({
             name,
