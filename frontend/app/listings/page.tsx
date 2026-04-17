@@ -10,10 +10,10 @@ type FilterCategory = 'All' | 'Event Planner' | 'Performer' | 'Crew';
 const CATEGORY_FILTERS: FilterCategory[] = ['All', 'Event Planner', 'Performer', 'Crew'];
 
 const FILTER_ICONS: Record<FilterCategory, React.ReactNode> = {
-  All: null,
-  'Event Planner': <LayoutList size={15} />,
-  Performer: <Music size={15} />,
-  Crew: <Briefcase size={15} />,
+  "All": null,
+  "Event Planner": <LayoutList size={15} />,
+  "Performer": <Music size={15} />,
+  "Crew": <Briefcase size={15} />,
 };
 
 export default function ListingsPage() {
@@ -24,10 +24,19 @@ export default function ListingsPage() {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>('All');
 
   useEffect(() => {
-    getRequirements()
-      .then(setRequirements)
-      .catch(() => setError('Failed to load requirements. Please try again.'))
-      .finally(() => setLoading(false));
+    const fetchRequirements = async () => {
+      try {
+        const data = await getRequirements();
+        setRequirements(data);
+      } catch {
+        setError('Failed to load requirements. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    // don't wait for the execution of this... whenever setReq updates, re-render happens automatically.
+    fetchRequirements();
   }, []);
 
   const filtered = requirements.filter((r) => {

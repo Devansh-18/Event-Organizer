@@ -31,7 +31,7 @@ export default function MultiStepForm() {
     if (step === 1) {
       fieldsToValidate = ['name', 'eventType', 'startDate', 'endDate', 'location', 'category'];
     } else if (step === 2) {
-      const cat = watch('category');
+      const cat = watch('category'); // to get current state or value of field outside input, watch is used.
       if (cat === 'Event Planner') fieldsToValidate = ['budget', 'guestCount', 'servicesNeeded'];
       if (cat === 'Performer') fieldsToValidate = ['genre', 'performanceDuration', 'equipmentProvided'];
       if (cat === 'Crew') fieldsToValidate = ['roleType', 'shiftHours', 'experienceRequired'];

@@ -14,6 +14,7 @@ export default function Step1Basics() {
         <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
           <Type size={16} className="text-blue-500" /> Event Name *
         </label>
+        {/* note that in all input, it does not re-renders component again and again as it uses ref instead of states. Also we can see real time values beacause react hook form uses values directly from the input field values parameter and not state. */}
         <input 
           {...register('name', { required: 'Event Name is required' })}
           className={`w-full p-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-500/50 transition-all shadow-sm ${errors.name ? 'border-red-500 bg-red-50' : 'border-gray-200 focus:border-blue-500'}`}
@@ -65,10 +66,9 @@ export default function Step1Basics() {
               required: 'Start Date is required',
               validate: (value) => {
                 const today = new Date();
-                today.setHours(0, 0, 0, 0);
-                const selectedDate = new Date(value);
+                today.setHours(0, 0, 0, 0); // now only date remains and hours, min, etc. are set to 0, i.e., midnight.
                 // Due to timezone offsets when creating a date from string, let's compare simple YYYY-MM-DD
-                const todayStr = today.toISOString().split('T')[0];
+                const todayStr = today.toISOString().split('T')[0]; // date is in form yyyy-mm-ddT.... so split from T and get the first element of splitted array which is date only.
                 if (value < todayStr) return 'Start date cannot be in the past';
                 return true;
               }

@@ -12,9 +12,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Event Manager",
-  description: "Manage event in one go",
+export const metadata:Metadata = {
+  title: 'Post a Requirement | EventPost',
+  description: 'Post your event planner, performer, or crew requirements smoothly.',
 };
 
 export default function RootLayout({

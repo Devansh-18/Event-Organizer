@@ -1,26 +1,21 @@
 import MultiStepForm from '@/app/components/forms';
-import { Metadata } from 'next';
-
-export const metadata:Metadata = {
-  title: 'Post a Requirement | EventPost',
-  description: 'Post your event planner, performer, or crew requirements smoothly.',
-};
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <header className="bg-white border-b border-gray-200 py-4 px-6 sm:px-10 sticky top-0 z-10 shadow-sm">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+          <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
             <img src="/logo.png" alt="EventPost logo" className="h-8 w-8 rounded-lg object-cover" />
             <span className="font-bold text-xl text-slate-900">EventPost</span>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/listings"
             className="text-sm font-medium text-blue-600 hover:text-blue-700 transition border border-blue-200 rounded-lg px-4 py-2 hover:bg-blue-50"
           >
             Browse Listings
-          </a>
+          </Link>
         </div>
       </header>
 
